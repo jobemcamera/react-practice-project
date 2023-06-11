@@ -3,7 +3,7 @@ import Card from '../../UI/Card';
 import styles from './AddUser.module.css'
 import Button from '../../UI/Button';
 
-const AddUser = () => {
+const AddUser = ({ onAddUser }) => {
 
   const [enteredUsername, setEnteredUsername] = useState('');
   const [enteredAge, setEnteredAge] = useState('');
@@ -19,8 +19,10 @@ const AddUser = () => {
       return;
     }
 
-    setEnteredUsername('');
-    setEnteredAge('');
+    onAddUser(enteredUsername, enteredAge); // setting up the state to App.js
+
+    setEnteredUsername(''); // cleaning the input
+    setEnteredAge(''); // cleaning the input
   }
 
   const usernameChangeHandler = (event) => {
